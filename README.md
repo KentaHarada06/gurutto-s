@@ -1,24 +1,66 @@
-# README
+## users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column               |Type    |Options                   |
+| ------------------- | ------ | -----------------------  |
+| email               | string | null: false unique: true |
+| encrypted_password  | string | null: false              |
+| nickname            | string | null: false              |
 
-Things you may want to cover:
+### Association
+- has_many :room_users
+- has_many :rooms, through: room_users
+- has_many :comments
 
-* Ruby version
 
-* System dependencies
+## rooms
 
-* Configuration
+| Column                    | Type       | Options                        |
+| ------------------------- | ---------- | ------------------------------ |
+| room_name                 | string     | null: false                    |
+| description               | text       | null: false                    |
+| user                      | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- has_many :room_users
+- has_many :users, through: room_users
+- has_many :posts
+- belongs_to :user
 
-* Database initialization
 
-* How to run the test suite
+## room_users
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
+- belongs_to :user
+- belongs_to :room
 
-* ...
+
+## posts
+
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| title                    | string     | null: false                    |
+| content                  | text       | null: false                    |
+| ref_url                  | string     | null: false                    |
+| room                     | references | null: false, foreign_key: true |
+
+### Association
+- has_many :comments
+- belongs_to :room
+
+
+## comments
+
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| message                  | text       | null: false                    |
+| post                     | references | null: false, foreign_key: true |
+| user                     | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :post
+- belongs_to :user
