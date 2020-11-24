@@ -1,2 +1,21 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<div class="top-img">
+  <div class="header-container">
+    <header>
+      <%= link_to image_tag("guruttoS_logo.png", class:"guruttoS-logo"), "#" %>
+    </header>
+    <nav>
+      <ul class="main-nav">
+        <li class="header-btn"><%= link_to "ログイン", new_user_session_path %></li>
+        <li class="header-btn"><%= link_to "新規登録", new_user_registration_path %></li>
+      </ul>
+    </nav>
+  </div>
+  <main class="index-main-container">
+    <h1 class="index-heading"><span>ぐるっとS</span>とは</h1>
+    <div class="index-text">
+      <p>ぐるっとSは会社やサークルなど、特定のグループ内で</p>
+      <p>情報の発信や共有を行うことが出来るWebサービスです。</p>
+      <div class="index-btn"><%= link_to "始めてみる", new_user_registration_path %></div>
+    </div>
+  </main>
+</div>
