@@ -1,0 +1,51 @@
+.top-img {
+  background-image: url("/images/top_img.jpg");
+  background-position: center top;
+  background-size: cover;
+  min-height: 100vh - 65px;
+  position: relative;
+}
+
+.devise-container {
+  height: calc(100vh - 65px);
+  width: 50%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.devise-title {
+  padding-top: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.devise-form {
+  width: 70%;
+  margin: 0 auto;
+  padding: 50px;
+  border: gray solid 1px;
+  border-radius: 10px;
+}
+
+.form-default {
+  margin-bottom: 30px;
+  padding: 0 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.register-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.register-blue-btn {
+  width: 100%;
+  background: rgb(53, 157, 255);
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+}

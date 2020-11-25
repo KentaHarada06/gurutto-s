@@ -1,0 +1,29 @@
+<div class="top-img">
+
+  <%= render "shared/header"%>
+
+  <div class="devise-container">
+    <div class="devise-title">
+      <h2>ログイン</h2>
+    </div>
+    <div class="devise-form">
+      <%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <label class="form-text">メールアドレス</label>
+          <%= f.email_field :email, placeholder:"sample@mail.com", autofocus: true, autocomplete: "email", class:"form-default" %>
+        </div>
+
+        <div class="field">
+          <label class="form-text">パスワード</label>
+          <%= f.password_field :password, placeholder:"パスワード (英数字６文字以上)", autocomplete: "current-password", class:"form-default" %>
+        </div>
+
+        <div class="register-btn">
+          <%= f.submit "ログイン", class:"register-blue-btn" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

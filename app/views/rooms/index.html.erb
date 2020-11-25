@@ -1,15 +1,5 @@
 <div class="top-img">
-  <div class="header-container">
-    <header>
-      <%= link_to image_tag("guruttoS_logo.png", class:"guruttoS-logo"), "#" %>
-    </header>
-    <nav>
-      <ul class="main-nav">
-        <li class="header-btn"><%= link_to "ログイン", new_user_session_path %></li>
-        <li class="header-btn"><%= link_to "新規登録", new_user_registration_path %></li>
-      </ul>
-    </nav>
-  </div>
+  <%= render "shared/header"%>
   <main class="index-main-container">
     <h1 class="index-heading"><span>ぐるっとS</span>とは</h1>
     <div class="index-text">
