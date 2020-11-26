@@ -1,11 +1,72 @@
 <div class="top-img">
   <%= render "shared/header"%>
-  <main class="index-main-container">
-    <h1 class="index-heading"><span>ぐるっとS</span>とは</h1>
-    <div class="index-text">
-      <p>ぐるっとSは会社やサークルなど、特定のグループ内で</p>
-      <p>情報の発信や共有を行うことが出来るWebサービスです。</p>
-      <div class="index-btn"><%= link_to "始めてみる", new_user_registration_path %></div>
-    </div>
-  </main>
+
+  <% if user_signed_in? %>
+    <main class="index-room-container">
+      <div class="left-myroom-bar">
+        <div class="myroom-user-box">
+          <p class="myroom-user-name"><%= current_user.nickname %>さん</p>
+        </div>
+        <div class="myroom-create-box">
+          <div class="myroom-create-btn"><%= link_to "ルーム作成", "#" %></div>
+        </div>
+        <div class="myroom-lists-header">登録ルーム一覧</div>
+
+        <div class="myroom-lists">
+          <div class="myroom-list-box">
+            <div class="myroom-list-name">
+              <%= link_to "ルーム1", "#" %>
+            </div>
+          </div>
+          <div class="myroom-list-box">
+            <div class="myroom-list-name">
+              <%= link_to "ルーム2", "#" %>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+      <div class="room-screen">
+        <div class="room-screen-header">
+          <div class="room-screen-header-box">
+            <h1 class="room-screen-header-title">ルーム一覧</h1>
+            <div class="room-screen-header-search">
+              <form action= "#" method= "GET">
+                <input class="search-form-text" type="seach" placeholder="検索 …">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="room-screen-box">
+          <div class="room-screen-lists">
+            <div class="room-screen-list-box">
+              <div class="room-screen-list-header">
+                ルーム名
+              </div>
+              <div class="room-screen-list-body">
+                <div class="room-screen-list-owner-name">ルームオーナー名</div>
+                <div class="room-screen-list-create-date">作成日時</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  <% else %>
+
+    <main class="index-main-container">
+      <h1 class="index-heading"><span>ぐるっとS</span>とは</h1>
+      <div class="index-text">
+        <p>ぐるっとSは会社やサークルなど、特定のグループ内で</p>
+        <p>情報の発信や共有を行うことが出来るWebサービスです。</p>
+        <div class="index-btn"><%= link_to "始めてみる", new_user_registration_path %></div>
+      </div>
+    </main>
+
+  <% end %>
 </div>

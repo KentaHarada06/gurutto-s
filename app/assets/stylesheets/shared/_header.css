@@ -1,12 +1,7 @@
-body {
-  font-family: "ヒラギノ角ゴ ProN","游ゴシック","メイリオ","sans-serif";
-}
-
 a {
   display: block;
   padding: 5px;
   text-decoration: none;
-  color: rgb(53, 157, 255);
 }
 
 .header-container {
@@ -30,4 +25,8 @@ a {
 .header-btn {
   border: rgb(53, 157, 255) solid 2px;
   margin-right: 30px;
+}
+
+.header-btn a {
+  color: rgb(53, 157, 255);
 }

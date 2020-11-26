@@ -2,7 +2,7 @@
   background-image: url("/images/top_img.jpg");
   background-position: center top;
   background-size: cover;
-  min-height: 100vh - 65px;
+  min-height: 100vh;
   position: relative;
 }
 
