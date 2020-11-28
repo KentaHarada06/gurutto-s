@@ -8,24 +8,19 @@
           <p class="myroom-user-name"><%= current_user.nickname %>さん</p>
         </div>
         <div class="myroom-create-box">
-          <div class="myroom-create-btn"><%= link_to "ルーム作成", "#" %></div>
+          <div class="myroom-create-btn"><%= link_to "ルーム作成", new_room_path %></div>
         </div>
-        <div class="myroom-lists-header">登録ルーム一覧</div>
+        <div class="myroom-lists-header">参加ルーム一覧</div>
 
         <div class="myroom-lists">
-          <div class="myroom-list-box">
-            <div class="myroom-list-name">
-              <%= link_to "ルーム1", "#" %>
+          <% current_user.rooms.each do |room| %>
+            <div class="myroom-list-box">
+              <div class="myroom-list-name">
+                <%= link_to room.room_name, "#" %>
+              </div>
             </div>
-          </div>
-          <div class="myroom-list-box">
-            <div class="myroom-list-name">
-              <%= link_to "ルーム2", "#" %>
-            </div>
-          </div>
+          <% end %>
         </div>
-
-        
 
       </div>
       <div class="room-screen">
@@ -42,15 +37,22 @@
 
         <div class="room-screen-box">
           <div class="room-screen-lists">
-            <div class="room-screen-list-box">
-              <div class="room-screen-list-header">
-                ルーム名
+            <% @rooms.each do |room| %>
+              <div class="room-screen-list-box">
+                <div class="room-screen-list-header">
+                  <div class="room-screen-list-room-name"><%= room.room_name %></div>
+                    <div class="room-screen-list-entry-btn">
+                      <%= form_with model: @room, local: true do |f| %>
+                          <%= f.submit "参加", class:"entry-blue-btn" %>
+                      <% end %>
+                    </div>
+                  </div>
+                <div class="room-screen-list-body">
+                  <div class="room-screen-list-owner-name"><%= User.find(room.owner_id).nickname %></div>
+                  <div class="room-screen-list-create-date"><%= room.created_at %></div>
+                </div>
               </div>
-              <div class="room-screen-list-body">
-                <div class="room-screen-list-owner-name">ルームオーナー名</div>
-                <div class="room-screen-list-create-date">作成日時</div>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
 
