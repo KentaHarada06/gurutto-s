@@ -28,8 +28,10 @@
           <div class="room-screen-header-box">
             <h1 class="room-screen-header-title">ルーム一覧</h1>
             <div class="room-screen-header-search">
-              <form action= "#" method= "GET">
-                <input class="search-form-text" type="seach" placeholder="検索 …">
+              <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
+                <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+                <%= form.submit "検索", class: "search-btn" %>
+              <% end %>
               </form>
             </div>
           </div>
@@ -37,13 +39,20 @@
 
         <div class="room-screen-box">
           <div class="room-screen-lists">
+
             <% @rooms.each do |room| %>
               <div class="room-screen-list-box">
                 <div class="room-screen-list-header">
                   <div class="room-screen-list-room-name"><%= room.room_name %></div>
                     <div class="room-screen-list-entry-btn">
-                      <%= form_with model: @room, local: true do |f| %>
+                      <% unless RoomUser.where(room_id: room.id).exists?(user_id: current_user.id) %>
+                        <%= form_with model: @roomuser, local: true do |f| %>
+                          <input name="room_user[user_id]" type="hidden" value=<%= current_user.id %>>
+                          <input name="room_user[room_id]" type="hidden" value=<%= room.id %>>
                           <%= f.submit "参加", class:"entry-blue-btn" %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to "退出", room_user_path(room), method: :delete %>
                       <% end %>
                     </div>
                   </div>
@@ -53,6 +62,7 @@
                 </div>
               </div>
             <% end %>
+
           </div>
         </div>
 

@@ -152,6 +152,7 @@ a {
   height: 50%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: gray solid 1px;
 }
 
