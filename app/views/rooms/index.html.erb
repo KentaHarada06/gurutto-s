@@ -54,6 +54,9 @@
                       <% else %>
                         <%= link_to "退出", room_user_path(room), method: :delete %>
                       <% end %>
+                      <% if room.owner_id == current_user.id %>
+                        <%= link_to "ルーム削除", room_path(room), method: :delete %>
+                      <% end %>
                     </div>
                   </div>
                 <div class="room-screen-list-body">

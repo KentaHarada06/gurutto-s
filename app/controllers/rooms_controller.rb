@@ -9,8 +9,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    binding.pry
     @room = Room.new(room_params)
+    binding.pry
     if @room.save
       redirect_to root_path
     else
@@ -21,6 +21,12 @@ class RoomsController < ApplicationController
   def search
     @rooms = Room.search(params[:keyword])
   end
+
+  def destroy
+    room = Room.find(params[:id])
+    room.destroy
+    redirect_to root_path
+   end
 
   private
 
