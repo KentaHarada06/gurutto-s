@@ -7,4 +7,13 @@ class Room < ApplicationRecord
     validates :room_description
     validates :owner_id
   end
+
+  def self.search(search)
+    if search != ""
+      Room.where('room_name LIKE(?)', "%#{search}%")
+    else
+      Room.all
+    end
+  end
+
 end

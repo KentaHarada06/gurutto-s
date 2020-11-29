@@ -128,6 +128,12 @@ a {
   background-color: rgb(255, 255, 255);
 }
 
+.search-btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(53, 157, 255);
+}
+
 .room-screen-box {
   height: calc(100% - 140px);
 }
