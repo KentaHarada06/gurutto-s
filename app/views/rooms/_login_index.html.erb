@@ -1,0 +1,56 @@
+<main class="index-room-container">
+
+  <%= render "shared/left-room-bar" %>
+
+  <div class="room-screen">
+    <div class="room-screen-header">
+      <div class="room-screen-header-box">
+        <h1 class="room-screen-header-title">ルーム一覧</h1>
+        <div class="room-screen-header-search">
+          <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form.text_field :keyword, placeholder: "ルーム名を検索する", class: "search-form-text" %>
+            <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="room-screen-box">
+      <div class="room-screen-lists">
+
+        <% @rooms.each do |room| %>
+          <div class="room-screen-list-box">
+            <div class="room-screen-list-header">
+              <div class="room-screen-list-room-name"><%= link_to room.room_name,"#" %></div>
+                <div class="room-screen-list-btn">
+                  <% unless RoomUser.where(room_id: room.id).exists?(user_id: current_user.id) %>
+                    <%= form_with model: @roomuser, local: true do |f| %>
+                      <input name="room_user[user_id]" type="hidden" value=<%= current_user.id %>>
+                      <input name="room_user[room_id]" type="hidden" value=<%= room.id %>>
+                      <%= f.submit "参加", class:"room-entry-btn" %>
+                    <% end %>
+                  <% else %>
+                    <div class="room-exist-btn">
+                      <%= link_to "退出", room_user_path(room), method: :delete %>
+                    </div>
+                  <% end %>
+                  <% if room.owner_id == current_user.id %>
+                    <div class="room-delete-btn">
+                      <%= link_to "削除", room_path(room), method: :delete, data: { confirm: '本当に削除しても良いですか？' } %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <div class="room-screen-list-body">
+              <div class="room-screen-list-owner-name">オーナー名：<%= User.find(room.owner_id).nickname %></div>
+              <div class="room-screen-list-create-date">作成日時：<%= room.created_at.to_s(:datetime_jp) %></div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</main>

@@ -1,87 +1,9 @@
 <div class="top-img">
-  <%= render "shared/header"%>
+  <%= render "shared/header" %>
 
   <% if user_signed_in? %>
-    <main class="index-room-container">
-      <div class="left-myroom-bar">
-        <div class="myroom-user-box">
-          <p class="myroom-user-name"><%= current_user.nickname %>さん</p>
-        </div>
-        <div class="myroom-create-box">
-          <div class="myroom-create-btn"><%= link_to "ルーム作成", new_room_path %></div>
-        </div>
-        <div class="myroom-lists-header">参加ルーム一覧</div>
-
-        <div class="myroom-lists">
-          <% current_user.rooms.each do |room| %>
-            <div class="myroom-list-box">
-              <div class="myroom-list-name">
-                <%= link_to room.room_name, "#" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-
-      </div>
-      <div class="room-screen">
-        <div class="room-screen-header">
-          <div class="room-screen-header-box">
-            <h1 class="room-screen-header-title">ルーム一覧</h1>
-            <div class="room-screen-header-search">
-              <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
-                <%= form.text_field :keyword, placeholder: "ルーム名を検索する", class: "search-form-text" %>
-                <%= form.submit "検索", class: "search-btn" %>
-              <% end %>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="room-screen-box">
-          <div class="room-screen-lists">
-
-            <% @rooms.each do |room| %>
-              <div class="room-screen-list-box">
-                <div class="room-screen-list-header">
-                  <div class="room-screen-list-room-name"><%= room.room_name %></div>
-                    <div class="room-screen-list-entry-btn">
-                      <% unless RoomUser.where(room_id: room.id).exists?(user_id: current_user.id) %>
-                        <%= form_with model: @roomuser, local: true do |f| %>
-                          <input name="room_user[user_id]" type="hidden" value=<%= current_user.id %>>
-                          <input name="room_user[room_id]" type="hidden" value=<%= room.id %>>
-                          <%= f.submit "参加", class:"entry-blue-btn" %>
-                        <% end %>
-                      <% else %>
-                        <%= link_to "退出", room_user_path(room), method: :delete %>
-                      <% end %>
-                      <% if room.owner_id == current_user.id %>
-                        <%= link_to "ルーム削除", room_path(room), method: :delete %>
-                      <% end %>
-                    </div>
-                  </div>
-                <div class="room-screen-list-body">
-                  <div class="room-screen-list-owner-name"><%= User.find(room.owner_id).nickname %></div>
-                  <div class="room-screen-list-create-date"><%= room.created_at %></div>
-                </div>
-              </div>
-            <% end %>
-
-          </div>
-        </div>
-
-      </div>
-    </main>
-
+    <%= render "rooms/login_index" %>
   <% else %>
-
-    <main class="index-main-container">
-      <h1 class="index-heading"><span>ぐるっとS</span>とは</h1>
-      <div class="index-text">
-        <p>ぐるっとSは会社やサークルなど、特定のグループ内で</p>
-        <p>情報の発信や共有を行うことが出来るWebサービスです。</p>
-        <div class="index-btn"><%= link_to "始めてみる", new_user_registration_path %></div>
-      </div>
-    </main>
-
+    <%= render "rooms/unlogin_index" %>
   <% end %>
 </div>

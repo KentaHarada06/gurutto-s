@@ -1,0 +1,19 @@
+<div class="left-myroom-bar">
+  <div class="myroom-user-box">
+    <p class="myroom-user-name"><%= current_user.nickname %>さん</p>
+  </div>
+  <div class="myroom-create-box">
+    <div class="myroom-create-btn"><%= link_to "ルーム作成", new_room_path %></div>
+  </div>
+  <div class="myroom-lists-header">参加ルーム一覧</div>
+
+  <div class="myroom-lists">
+    <% current_user.rooms.each do |room| %>
+      <div class="myroom-list-box">
+        <div class="myroom-list-name">
+          <%= link_to room.room_name, "#" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
