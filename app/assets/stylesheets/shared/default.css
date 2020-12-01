@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+body {
+  font-family: "ヒラギノ角ゴ ProN","游ゴシック","メイリオ","sans-serif";
+}
+
+a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
