@@ -1,19 +1,16 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
-    @roomuser = RoomUser.new
-  end
-
-  def new
+    @rooms = Room.all.order(created_at: "DESC")
     @room = Room.new
+    @roomuser = RoomUser.new
   end
 
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to root_path
+      render json: { post: @room }
     else
-      render new_room_path
+      render json: { post: @room }, status: 422
     end
   end
 
