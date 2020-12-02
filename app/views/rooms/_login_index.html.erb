@@ -24,7 +24,7 @@
         <% @rooms.each do |room| %>
           <div class="room-screen-list-box">
             <div class="room-screen-list-header">
-              <div class="room-screen-list-room-name"><%= link_to room.room_name,"#" %></div>
+              <div class="room-screen-list-room-name"><%= link_to room.room_name, room_posts_path(room) %></div>
                 <div class="room-screen-list-btn">
                   <% unless RoomUser.where(room_id: room.id).exists?(user_id: current_user.id) %>
                     <%= form_with model: @roomuser, local: true do |f| %>
