@@ -1,0 +1,73 @@
+.index-post-container {
+  display: flex;
+}
+
+.post-screen {
+  height: calc(100vh - 65px);
+  width: 80vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.post-screen-header {
+  color: #2c2c2c;
+  height: 60px;
+  background-color: rgb(216, 216, 216);
+  border-bottom: gray solid 1px;
+}
+
+.post-screen-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+
+.post-screen-header-title {
+  font-size: 21px;
+}
+
+.post-screen-header-room-name {
+  display: inline;
+}
+
+.post-screen-header-search {
+  color: #ffffff;
+}
+
+.post-search-form-text{
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 300px;
+  border-radius: 4px;
+  border: 2px solid rgb(53, 157, 255);
+  background-color: rgb(255, 255, 255);
+}
+
+.post-search-btn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(53, 157, 255);
+}
+
+.post-screen-box {
+  height: calc(100% - 140px);
+}
+
+.post-screen-lists {
+  padding: 40px 80px;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.post-screen-list-box {
+  background-color: #dfdfdf;
+  height: 80px;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+  border: gray solid 1px;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}

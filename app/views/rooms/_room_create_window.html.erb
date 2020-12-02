@@ -2,7 +2,6 @@
   <h2 class="modal-room-create-title">ルームの作成</h2>
   <div class="modal-room-create-form-box">
     <%= form_with model: @room, id: 'modal-room-create-form', local: true do |f| %>
-    <%= render "devise/shared/error_messages", model: f.object %>
       <div class="field">
         <label class="form-text">ルーム名</label>
         <%= f.text_field :room_name, placeholder:"ルーム名 (20文字以内)", maxlength:"20", class:"form-default" %>

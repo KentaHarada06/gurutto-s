@@ -1,1 +1,22 @@
-<p><%= @room.room_name %></p>
+<%= render "shared/header" %>
+
+<main class="index-post-container">
+  <%= render "posts/left-post-bar" %>
+
+  <div class="post-screen">
+    <div class="post-screen-header">
+      <div class="post-screen-header-box">
+        <div class="post-screen-header-title">
+          ルーム：<%=link_to @room.room_name, '#', class:"post-screen-header-room-name" %>
+        </div>
+        <div class="post-screen-header-search">
+          <%= form_with(url: search_rooms_path, local: true, method: :get, class: "post-search-form") do |form| %>
+            <%= form.text_field :keyword, placeholder: "調べたいワードを入力してください", class: "post-search-form-text" %>
+            <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
