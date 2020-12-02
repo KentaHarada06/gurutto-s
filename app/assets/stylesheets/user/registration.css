@@ -1,16 +1,9 @@
-.top-img {
-  background-image: url("/images/top_img.jpg");
-  background-position: center top;
-  background-size: cover;
-  min-height: 100vh;
-  position: relative;
-}
-
 .devise-container {
   height: calc(100vh - 65px);
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
+  overflow: auto;
 }
 
 .devise-title {
@@ -25,6 +18,7 @@
   padding: 50px;
   border: gray solid 1px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .form-default {
