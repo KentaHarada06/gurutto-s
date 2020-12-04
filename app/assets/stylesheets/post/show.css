@@ -17,6 +17,7 @@
 
 .post-screen-show-header-top {
   display: flex;
+  align-items: center;
 }
 
 .post-screen-show-user {
@@ -24,18 +25,17 @@
 }
 
 .post-screen-show-postdate {
-  display: flex;
-  align-items: flex-end;
   font-size: 12px;
   margin-left: 5px;
+  color: rgb(175, 175, 175);
+}
+
+.post-screen-show-edit, .post-screen-show-destroy{
+  font-size: 12px;
 }
 
 .post-screen-show-title {
   font-size: 25px;
-}
-
-.post-screen-show-postdate {
-  color: rgb(175, 175, 175);
 }
 
 .post-screen-show-body {

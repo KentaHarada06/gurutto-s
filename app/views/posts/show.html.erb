@@ -15,6 +15,12 @@
           <div class="post-screen-show-postdate">
             <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
           </div>
+          <div class="post-screen-show-edit">
+            <%= link_to "編集", edit_room_post_path %>
+          </div>
+          <div class="post-screen-show-destroy">
+            <%= link_to "削除", room_post_path, method: :delete %>
+          </div>
         </div>
         <div class="post-screen-show-title">
           <%= @post.title %>
@@ -23,7 +29,7 @@
       <div class="post-screen-show-body">
         <div class="post-screen-show-body">
           <div class="post-screen-show-body-border">投稿内容</div>
-          <div class="post-screen-show-content"> <%= markdown(@post.content).html_safe %></div>
+          <div class="post-screen-show-content"><%= markdown(@post.content).html_safe %></div>
         </div>
       </div>
     </div>

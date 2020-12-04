@@ -24,6 +24,28 @@ class PostsController < ApplicationController
     @post = @room.posts.find(params[:id])
   end
 
+  def edit
+    @room = Room.find(params[:room_id])
+    @post = @room.posts.find(params[:id])
+  end
+
+  def update
+    @room = Room.find(params[:room_id])
+    @post = @room.posts.find(params[:id])
+    if @post.update(post_params)
+      redirect_to room_post_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @room = Room.find(params[:room_id])
+    @post = @room.posts.find(params[:id])
+    @post.destroy
+    redirect_to room_posts_path
+  end
+
   private
 
   def post_params
