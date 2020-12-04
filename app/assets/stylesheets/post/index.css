@@ -61,13 +61,32 @@
   overflow: auto;
 }
 
+.post-screen-lists-border {
+  border-bottom: rgb(212, 212, 212) solid 1px;
+}
+
 .post-screen-list-box {
-  background-color: #dfdfdf;
-  height: 80px;
-  margin-bottom: 20px;
+  min-height: 80px;
+  height: auto;
   padding: 0px 20px;
-  border: gray solid 1px;
-  border-radius: 10px;
-  white-space: nowrap;
-  overflow: hidden;
+  border-bottom: rgb(212, 212, 212) solid 1px;
+  overflow-wrap: break-word;
+}
+
+.post-screen-list-header {
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  height: 60%;
+}
+
+.post-screen-list-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40%;
+}
+
+.post-screen-list-user {
+  display: inline;
 }

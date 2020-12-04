@@ -3,7 +3,7 @@
     <p class="default-left-bar-name"><%= current_user.nickname %>さん</p>
   </div>
   <div class="default-left-create-box">
-    <div class="default-left-create-btn" ><%= link_to "投稿する","#" %></div>
+    <div class="default-left-create-btn" ><%= link_to "投稿する",new_room_post_path %></div>
     <%= render "rooms/room_create_window" %>
   </div>
   <div class="default-left-lists-header">投稿メニュー</div>

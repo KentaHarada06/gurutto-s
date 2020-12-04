@@ -1,31 +1,37 @@
-<div class="top-img">
+<%= render "shared/header"%>
 
-  <%= render "shared/header"%>
+<div class="post-new-form-container">
 
-  <div class="devise-container">
-    <div class="devise-title">
-      <h2>ルーム作成</h2>
-    </div>
-    <div class="devise-form">
-      <%= form_with model: @room, local: true do |f| %>
-      <%= render "devise/shared/error_messages", model: f.object %>
-        <div class="field">
-          <label class="form-text">ルーム名</label>
-          <%= f.text_field :room_name, placeholder:"ルーム名 (20文字以内)", maxlength:"20", class:"form-default" %>
-        </div>
+  <%= render "posts/left-post-bar"%>
 
-        <div class="field">
-          <label class="form-text">ルーム説明文</label>
-          <%= f.text_field :room_description, placeholder:"ルーム説明 (100文字以内)", maxlength:"100", class:"form-default" %>
-        </div>
+  <div class="post-form-wrapper">
 
-        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+  <%= render "posts/post-screen-header"%>
+  
+    <div class="post-new-form-body">
+      <div class="post-new-form-lists">
+        <%= form_with model: [@room, @post], local: true do |f| %>
+        <%= render "devise/shared/error_messages", model: f.object %>
+          <div class="form-field">
+            <label class="form-text">投稿タイトル</label>
+            <%= f.text_field :title, placeholder:"投稿タイトル (60文字以内)", maxlength:"60", class:"post-form-box" %>
+          </div>
 
-        <div class="register-btn">
-          <%= f.submit "作成", class:"register-blue-btn" %>
-        </div>
-      <% end %>
+          <div class="form-field">
+            <label class="form-text">参考URL</label>
+            <%= f.text_field :ref_url, placeholder:"参考URL", class:"post-form-box" %>
+          </div>
 
+          <div class="form-field">
+            <label class="form-text">本文</label>
+            <%= f.text_area :content, placeholder:"本文を入力してください", class:"post-form-content" %>
+          </div>
+
+          <div class="post-form-btn">
+            <%= f.submit "作成", class:"form-blue-btn" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

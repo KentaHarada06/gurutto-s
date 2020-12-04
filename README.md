@@ -45,11 +45,13 @@
 | ------------------------ | ---------- | ------------------------------ |
 | title                    | string     | null: false                    |
 | content                  | text       | null: false                    |
-| ref_url                  | string     | null: false                    |
+| ref_url                  | string     |                                |
+| user                     | references | null: false, foreign_key: true |
 | room                     | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :comments
+- belongs_to :user
 - belongs_to :room
 
 
