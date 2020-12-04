@@ -23,7 +23,7 @@
       <div class="post-screen-show-body">
         <div class="post-screen-show-body">
           <div class="post-screen-show-body-border">投稿内容</div>
-          <div class="post-screen-show-content"> <%= @post.content %></div>
+          <div class="post-screen-show-content"> <%= markdown(@post.content).html_safe %></div>
         </div>
       </div>
     </div>
