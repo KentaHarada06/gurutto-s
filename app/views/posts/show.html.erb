@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+
+<main class="index-post-container">
+  <%= render "posts/left-post-bar" %>
+
+  <div class="post-show-screen">
+    <%= render "posts/post-screen-header" %>
+
+    <div class="post-screen-show-box">
+      <div class="post-screen-show-header">
+        <div class="post-screen-show-header-top">
+          <div class="post-screen-show-user">
+            <%= @post.user.nickname %>
+          </div>
+          <div class="post-screen-show-postdate">
+            <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
+          </div>
+        </div>
+        <div class="post-screen-show-title">
+          <%= @post.title %>
+        </div>
+      </div>
+      <div class="post-screen-show-body">
+        <div class="post-screen-show-body">
+          <div class="post-screen-show-body-border">投稿内容</div>
+          <div class="post-screen-show-content"> <%= @post.content %></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

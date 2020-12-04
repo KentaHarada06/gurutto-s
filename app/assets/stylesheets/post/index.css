@@ -13,6 +13,7 @@
   height: 60px;
   background-color: rgb(216, 216, 216);
   border-bottom: gray solid 1px;
+  white-space: nowrap;
 }
 
 .post-screen-header-box {
