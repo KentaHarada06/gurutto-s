@@ -1,0 +1,17 @@
+<div class="post-screen-box">
+  <div class="post-screen-lists">
+    <% if @posts.any? %>
+      <div class="post-screen-lists-border"></div>
+    <% end %>
+    <% @posts.each do |post| %>
+      <div class="post-screen-list-box">
+        <div class="post-screen-list-header">
+          <%= link_to post.title, room_post_path(@room, post) %>
+        </div>
+        <div class="post-screen-list-body">
+          投稿者：<%= link_to post.user.nickname, '#', class:"post-screen-list-user" %>　投稿日時：<%= post.created_at.to_s(:datetime_jp) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

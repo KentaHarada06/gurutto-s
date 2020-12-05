@@ -46,6 +46,11 @@ class PostsController < ApplicationController
     redirect_to room_posts_path
   end
 
+  def search
+    @room = Room.find(params[:room_id])
+    @posts = @room.posts.search(params[:keyword]).includes(:user)
+  end
+
   private
 
   def post_params

@@ -4,7 +4,7 @@
       ルーム：<%=link_to @room.room_name, room_posts_path, class:"post-screen-header-room-name" %>
     </div>
     <div class="post-screen-header-search">
-      <%= form_with(url: search_rooms_path, local: true, method: :get, class: "post-search-form") do |form| %>
+      <%= form_with(url: search_room_posts_path, local: true, method: :get, class: "post-search-form") do |form| %>
         <%= form.text_field :keyword, placeholder: "調べたいワードを入力してください", class: "post-search-form-text" %>
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
