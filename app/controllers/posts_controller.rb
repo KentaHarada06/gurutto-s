@@ -22,6 +22,8 @@ class PostsController < ApplicationController
   def show
     @room = Room.find(params[:room_id])
     @post = @room.posts.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.all.includes(:user)
   end
 
   def edit
