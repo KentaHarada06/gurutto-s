@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'rooms#index'
-  resources :rooms, only: [:new, :create, :destroy] do
+  resources :rooms, only: [:create, :destroy] do
     collection do
       get 'search'
+    end
+    resources :posts do
+      collection do
+        get 'search'
+      end
     end
   end
   resources :room_users, only: [:create, :destroy]

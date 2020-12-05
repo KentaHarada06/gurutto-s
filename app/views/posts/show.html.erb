@@ -1,0 +1,38 @@
+<%= render "shared/header" %>
+
+<main class="index-post-container">
+  <%= render "posts/left-post-bar" %>
+
+  <div class="post-show-screen">
+    <%= render "posts/post-screen-header" %>
+
+    <div class="post-screen-show-box">
+      <div class="post-screen-show-header">
+        <div class="post-screen-show-header-top">
+          <div class="post-screen-show-user">
+            <%= @post.user.nickname %>
+          </div>
+          <div class="post-screen-show-postdate">
+            <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
+          </div>
+          <div class="post-screen-show-edit">
+            <%= link_to "編集", edit_room_post_path %>
+          </div>
+          <div class="post-screen-show-destroy">
+            <%= link_to "削除", room_post_path, method: :delete %>
+          </div>
+        </div>
+        <div class="post-screen-show-title">
+          <%= @post.title %>
+        </div>
+      </div>
+      <div class="post-screen-show-body">
+        <div class="post-screen-show-body">
+          <div class="post-screen-show-body-border">投稿内容</div>
+          <div class="post-screen-show-content"><%= markdown(@post.content).html_safe %></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

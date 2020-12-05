@@ -1,4 +1,4 @@
-.devise-container {
+.form-container {
   height: calc(100vh - 65px);
   width: 70%;
   margin: 0 auto;
@@ -6,13 +6,13 @@
   overflow: auto;
 }
 
-.devise-title {
+.form-title {
   padding-top: 50px;
   margin-bottom: 40px;
   text-align: center;
 }
 
-.devise-form {
+.form-lists {
   width: 70%;
   margin: 0 auto;
   padding: 50px;
@@ -21,7 +21,7 @@
   margin-bottom: 20px;
 }
 
-.form-default {
+.form-box {
   margin-bottom: 30px;
   padding: 0 10px;
   height: 40px;
@@ -31,12 +31,12 @@
   background: #fff;
 }
 
-.register-btn {
+.form-btn {
   width: 50%;
   margin: 0 auto;
 }
 
-.register-blue-btn {
+.form-blue-btn {
   width: 100%;
   background: rgb(53, 157, 255);
   color: #fff;

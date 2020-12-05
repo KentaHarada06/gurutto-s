@@ -1,9 +1,7 @@
-<div class="top-img">
-  <%= render "shared/header"%>
+<%= render "shared/header"%>
 
-  <% if user_signed_in? %>
-    <%= render "rooms/login_index"%>
-  <% else %>
-    <%= render "rooms/unlogin_index"%>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <%= render "rooms/login_index"%>
+<% else %>
+  <%= render "rooms/unlogin_index"%>
+<% end %>

@@ -1,0 +1,53 @@
+.post-show-screen {
+  height: calc(100vh - 65px);
+  width: 80vw;
+}
+
+.post-screen-show-box {
+  height: calc(100% - 60px);
+  overflow-wrap: break-word;
+  background-color: rgb(255, 255, 255);
+  overflow: auto;
+}
+
+.post-screen-show-header {
+  background-color: rgb(233, 233, 233);
+  padding: 10px 30px 20px;
+}
+
+.post-screen-show-header-top {
+  display: flex;
+  align-items: center;
+}
+
+.post-screen-show-user {
+
+}
+
+.post-screen-show-postdate {
+  font-size: 12px;
+  margin-left: 5px;
+  color: rgb(175, 175, 175);
+}
+
+.post-screen-show-edit, .post-screen-show-destroy{
+  font-size: 12px;
+}
+
+.post-screen-show-title {
+  font-size: 25px;
+}
+
+.post-screen-show-body {
+  padding: 10px 20px;
+}
+
+.post-screen-show-body-border {
+  color: rgb(175, 175, 175);
+  border-bottom: rgb(175, 175, 175) 2px solid;
+}
+
+.post-screen-show-content {
+  padding: 5px 10px ;
+  min-height: 400px;
+}
