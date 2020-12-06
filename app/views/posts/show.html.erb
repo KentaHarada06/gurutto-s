@@ -16,10 +16,10 @@
             <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
           </div>
           <div class="post-screen-show-edit">
-            <%= link_to "編集", edit_room_post_path %>
+            <%= link_to "編集", edit_room_post_path(@room, @post) %>
           </div>
           <div class="post-screen-show-destroy">
-            <%= link_to "削除", room_post_path, method: :delete %>
+            <%= link_to "削除", room_post_path(@room, @post), method: :delete %>
           </div>
         </div>
         <div class="post-screen-show-title">
@@ -30,6 +30,29 @@
         <div class="post-screen-show-body">
           <div class="post-screen-show-body-border">投稿内容</div>
           <div class="post-screen-show-content"><%= markdown(@post.content).html_safe %></div>
+          <div class="post-screen-show-body-border">コメント</div>
+          <div class="post-screen-show-comment-area">
+            <% @comments.each do |comment| %>
+              <div class="comment-area-box">
+                <div class="comment-area-message"><%= comment.message %></div>
+                <div class="comment-area-footer">
+                  <div class="comment-area-message-date">投稿日時:<%= comment.created_at.to_s(:datetime_jp) %></div>
+                  <div class="comment-area-user"><%= comment.user.nickname %></div>
+                  <% if comment.user.id == current_user.id %>
+                    <div class="comment-area-delete"><%= link_to "削除", "/rooms/#{@room.id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete %></div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="post-screen-show-comment-form">
+            <p>■コメントを投稿する</p>
+            <%= form_with model: [@room, @post, @comment], local: true do |f| %>
+              <div class="comment-form-error-messages"><%= render "devise/shared/error_messages", model: f.object %></div>
+              <%= f.text_area :message, class: 'comment-form-box', placeholder: 'コメントを入力してください' %>
+            <%= f.submit '送信', class: 'comment-form-submit' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
