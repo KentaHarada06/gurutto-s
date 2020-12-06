@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     @post = @room.posts.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.all.includes(:user)
+    @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
   end
 
   def edit

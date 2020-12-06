@@ -25,6 +25,13 @@
         <div class="post-screen-show-title">
           <%= @post.title %>
         </div>
+        <div class="post-screen-show-favorite">
+          <% if @favorite == nil %>
+            <%= link_to "お気に入りに登録する", room_post_favorites_path(@room, @post), method: :create %>
+          <% else %>
+            <%= link_to "お気に入りを解除する", "/rooms/#{@room.id}/posts/#{@post.id}/favorites/#{@favorite.id}", method: :delete %>
+          <% end %>
+        </div>
       </div>
       <div class="post-screen-show-body">
         <div class="post-screen-show-body">
