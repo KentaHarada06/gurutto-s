@@ -37,7 +37,10 @@
                 <div class="comment-area-message"><%= comment.message %></div>
                 <div class="comment-area-footer">
                   <div class="comment-area-message-date">投稿日時:<%= comment.created_at.to_s(:datetime_jp) %></div>
-                  <div class="comment-area-user"><%= comment.post.user.nickname %></div>
+                  <div class="comment-area-user"><%= comment.user.nickname %></div>
+                  <% if comment.user.id == current_user.id %>
+                    <div class="comment-area-delete"><%= link_to "削除", "/rooms/#{@room.id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete %></div>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -46,7 +49,7 @@
             <p>■コメントを投稿する</p>
             <%= form_with model: [@room, @post, @comment], local: true do |f| %>
               <div class="comment-form-error-messages"><%= render "devise/shared/error_messages", model: f.object %></div>
-              <%= f.text_area :message, class: 'comment-form-box', placeholder: 'type a message' %>
+              <%= f.text_area :message, class: 'comment-form-box', placeholder: 'コメントを入力してください' %>
             <%= f.submit '送信', class: 'comment-form-submit' %>
             <% end %>
           </div>

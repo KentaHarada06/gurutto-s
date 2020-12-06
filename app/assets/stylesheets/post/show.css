@@ -20,10 +20,6 @@
   align-items: center;
 }
 
-.post-screen-show-user {
-
-}
-
 .post-screen-show-postdate {
   font-size: 12px;
   margin-left: 5px;
@@ -70,6 +66,7 @@
 .comment-area-footer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   font-size: 12px;
 }
 

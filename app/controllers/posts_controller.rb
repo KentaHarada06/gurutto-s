@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @room = Room.find(params[:room_id])
     @post = @room.posts.find(params[:id])
     @post.destroy
-    redirect_to room_posts_path
+    redirect_to room_post_path
   end
 
   def search
