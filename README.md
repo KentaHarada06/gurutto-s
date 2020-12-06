@@ -10,6 +10,8 @@
 - has_many :room_users
 - has_many :rooms, through: room_users
 - has_many :comments
+- has_many :favorites
+- has_many :posts, through: favorites
 
 
 ## rooms
@@ -53,6 +55,8 @@
 - has_many :comments
 - belongs_to :user
 - belongs_to :room
+- has_many :favorites
+- has_many :users, through: favorites
 
 
 ## comments
@@ -66,3 +70,14 @@
 ### Association
 - belongs_to :post
 - belongs_to :user
+
+## favorites
+
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| user                     | references | null: false, foreign_key: true |
+| post                     | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :post

@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   with_options presence: true do
     validates :title
