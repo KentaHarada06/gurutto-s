@@ -6,7 +6,7 @@
 }
 
 .post-form-wrapper {
-  width: 80%;
+  width: calc(100% - 200px);
 }
 
 .post-new-form-body {

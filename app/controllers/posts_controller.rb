@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     @post = @room.posts.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.all.includes(:user)
+    @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
   end
 
   def edit
@@ -51,6 +52,12 @@ class PostsController < ApplicationController
   def search
     @room = Room.find(params[:room_id])
     @posts = @room.posts.search(params[:keyword]).includes(:user)
+  end
+
+  def favorite
+    @room = Room.find(params[:room_id])
+    @favorites = @room.favorites.where(user_id: current_user.id)
+    @posts = Favorite.favorite_list(@favorites)
   end
 
   private

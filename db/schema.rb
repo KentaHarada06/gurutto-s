@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_05_053814) do
+ActiveRecord::Schema.define(version: 2020_12_06_050533) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message", null: false
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_12_05_053814) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["room_id"], name: "index_favorites_on_room_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,6 +77,9 @@ ActiveRecord::Schema.define(version: 2020_12_05_053814) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "posts"
+  add_foreign_key "favorites", "rooms"
+  add_foreign_key "favorites", "users"
   add_foreign_key "posts", "rooms"
   add_foreign_key "posts", "users"
   add_foreign_key "room_users", "rooms"

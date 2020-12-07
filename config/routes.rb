@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     resources :posts do
       collection do
         get 'search'
+        get 'favorite'
       end
       resources :comments, only: [:create, :destroy]
+      resources :favorites, only: [:create, :destroy]
     end
   end
   resources :room_users, only: [:create, :destroy]

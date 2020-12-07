@@ -4,7 +4,7 @@
 
 .post-screen {
   height: calc(100vh - 65px);
-  width: 80vw;
+  width: calc(100vw - 200px);
   background-color: rgb(255, 255, 255);
 }
 
@@ -51,12 +51,17 @@
   background-color: rgb(53, 157, 255);
 }
 
+.post-screen-title {
+  padding: 10px 30px;
+  background-color: rgb(202, 235, 255);
+}
+
 .post-screen-box {
   height: calc(100% - 140px);
 }
 
 .post-screen-lists {
-  padding: 40px 80px;
+  padding: 30px 80px;
   height: 100%;
   background-color: rgb(255, 255, 255);
   overflow: auto;
@@ -67,6 +72,7 @@
 }
 
 .post-screen-list-box {
+  min-width: 500px;
   min-height: 80px;
   height: auto;
   padding: 0px 20px;
