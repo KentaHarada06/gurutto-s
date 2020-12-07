@@ -1,39 +1,34 @@
-<div class="top-img">
+<div class="devise-container">  
+  <div class="devise-title">
+    <h2>ユーザー情報入力</h2>
+  </div>
+  <div class="devise-form">
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", model: f.object %>
 
-  <%= render "shared/header"%>
+      <div class="field">
+        <label class="form-text">ニックネーム</label>
+        <%= f.text_field :nickname, placeholder:"ニックネーム (20文字以内)", maxlength:"20", class:"form-default" %>
+      </div>
 
-  <div class="devise-container">  
-    <div class="devise-title">
-      <h2>ユーザー情報入力</h2>
-    </div>
-    <div class="devise-form">
-      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-        <%= render "devise/shared/error_messages", model: f.object %>
+      <div class="field">
+        <label class="form-text">メールアドレス</label>
+        <%= f.email_field :email, placeholder:"sample@mail.com", autofocus: true, autocomplete: "email", class:"form-default" %>
+      </div>
 
-        <div class="field">
-          <label class="form-text">ニックネーム</label>
-          <%= f.text_field :nickname, placeholder:"ニックネーム (20文字以内)", maxlength:"20", class:"form-default" %>
-        </div>
+      <div class="field">
+        <label class="form-text">パスワード</label>
+        <%= f.password_field :password, placeholder:"パスワード (英数字６文字以上)", autocomplete: "new-password", class:"form-default" %>
+      </div>
 
-        <div class="field">
-          <label class="form-text">メールアドレス</label>
-          <%= f.email_field :email, placeholder:"sample@mail.com", autofocus: true, autocomplete: "email", class:"form-default" %>
-        </div>
+      <div class="field">
+        <label class="form-text">パスワード(確認)</label>
+        <%= f.password_field :password_confirmation, placeholder:"パスワード (英数字６文字以上)", autocomplete: "new-password", class:"form-default" %>
+      </div>
 
-        <div class="field">
-          <label class="form-text">パスワード</label>
-          <%= f.password_field :password, placeholder:"パスワード (英数字６文字以上)", autocomplete: "new-password", class:"form-default" %>
-        </div>
-
-        <div class="field">
-          <label class="form-text">パスワード(確認)</label>
-          <%= f.password_field :password_confirmation, placeholder:"パスワード (英数字６文字以上)", autocomplete: "new-password", class:"form-default" %>
-        </div>
-
-        <div class="register-btn">
-          <%= f.submit "登録", class:"register-blue-btn" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="register-btn">
+        <%= f.submit "登録", class:"register-blue-btn" %>
+      </div>
+    <% end %>
   </div>
 </div>

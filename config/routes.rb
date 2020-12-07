@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/index'
   devise_for :users
   root to: 'rooms#index'
+  resources :users, only: [:show]
   resources :rooms, only: [:create, :destroy] do
     collection do
       get 'search'

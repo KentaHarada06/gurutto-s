@@ -1,6 +1,6 @@
 <div class="default-left-bar">
   <div class="default-left-bar-box">
-    <p class="default-left-bar-name"><%= current_user.nickname %>さん</p>
+    <p class="default-left-bar-name"><%= link_to current_user.nickname, user_path(current_user.id) %>さん</p>
   </div>
   <div class="default-left-create-box">
     <div class="default-left-create-btn" id="room-create-btn"><%= link_to "ルーム作成","#" %></div>
