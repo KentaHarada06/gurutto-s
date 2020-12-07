@@ -54,6 +54,11 @@ class PostsController < ApplicationController
     @posts = @room.posts.search(params[:keyword]).includes(:user)
   end
 
+  def favorite
+    @room = Room.find(params[:room_id])
+    @favorites = @room.favorites.where(user_id: current_user.id)
+  end
+
   private
 
   def post_params
