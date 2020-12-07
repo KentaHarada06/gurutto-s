@@ -51,6 +51,11 @@
   background-color: rgb(53, 157, 255);
 }
 
+.post-screen-title {
+  padding: 20px 30px;
+  background-color: rgb(202, 235, 255);
+}
+
 .post-screen-box {
   height: calc(100% - 140px);
 }

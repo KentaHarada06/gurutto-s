@@ -57,6 +57,7 @@ class PostsController < ApplicationController
   def favorite
     @room = Room.find(params[:room_id])
     @favorites = @room.favorites.where(user_id: current_user.id)
+    @posts = Favorite.favorite_list(@favorites)
   end
 
   private
