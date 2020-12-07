@@ -17,11 +17,11 @@
 }
 
 .header-btn {
-  border: rgb(53, 157, 255) solid 2px;
   margin-right: 30px;
 }
 
 .header-btn a {
+  border: rgb(53, 157, 255) solid 2px;
   color: rgb(53, 157, 255);
   user-select: none;
 }
@@ -29,4 +29,5 @@
 .header-btn a:hover {
   background-color: rgb(53, 157, 255);
   color: #ffffff;
+  text-decoration: none;
 }
