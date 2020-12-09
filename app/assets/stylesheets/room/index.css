@@ -12,7 +12,7 @@
 
 .room-screen {
   height: calc(100vh - 65px);
-  width: calc(100vw - 200px);
+  width: calc(100vw - 250px);
 }
 
 .room-screen-header {
@@ -28,7 +28,18 @@
 
 .room-screen-header-title {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  font-feature-settings: "palt" 1;
+}
+
+.room-screen-header-title span {
+  color: rgb(14, 139, 255);
+}
+
+.room-screen-header-title img {
+  margin: 0px 10px;
+  padding-bottom: 10px;
+  width: 100px;
 }
 
 .room-screen-header-search {
@@ -140,6 +151,8 @@
 }
 
 .room-screen-list-owner-name {
+  display: flex;
+  align-items: center;
   width: 50%;
 }
 

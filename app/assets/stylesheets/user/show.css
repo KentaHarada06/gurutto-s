@@ -1,0 +1,93 @@
+.user-wrapper {
+  background-color: rgb(241, 241, 241);
+  height: calc(100vh - 65px);
+  width: 100vw;
+  overflow: auto;
+  padding: 50px 0;
+}
+
+.user-container {
+  width: 1000px;
+  height: 600px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.user-profile-wrapper {
+  background-color: white;
+  min-width: 400px;
+  padding: 30px 30px;
+  height: 500px;
+}
+
+.user-profile-container {
+  height: 100%;
+  width: 100%;
+}
+
+.user-profile-img {
+  text-align: center;
+}
+
+.user-profile-img img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.user-profile-nickname {
+  font-size: 20px;
+  padding: 10px 0px;
+  text-align: center;
+  height: 50px;
+}
+
+.user-profile-edit {
+  text-align: center;
+  border: rgb(53, 157, 255) solid 2px;
+  color: rgb(53, 157, 255);
+  user-select: none;
+}
+
+.user-profile-edit a:hover {
+  text-decoration: none;
+  background-color: rgb(53, 157, 255);
+  color: #ffffff;
+}
+
+.user-profile-border {
+  margin: 20px 0px;
+  border-bottom: rgb(212, 212, 212) solid 1px;
+}
+
+.user-profile-show {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.user-profile-show-item {
+  background-color: rgb(212, 212, 212);
+  width: 150px;
+  padding: 0px 20px;
+}
+
+.user-profile-show-num {
+  background-color: rgb(241, 241, 241);
+  height: 100px;
+  width: 150px;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+
+
+.user-screen-wrapper {
+  margin-left: 20px;
+  background-color: white;
+  width: 580px;
+  height: 100%;
+}

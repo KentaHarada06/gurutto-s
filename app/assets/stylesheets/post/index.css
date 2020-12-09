@@ -4,7 +4,7 @@
 
 .post-screen {
   height: calc(100vh - 65px);
-  width: calc(100vw - 200px);
+  width: calc(100vw - 250px);
   background-color: rgb(255, 255, 255);
 }
 
