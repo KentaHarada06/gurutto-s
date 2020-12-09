@@ -1,6 +1,6 @@
 .post-show-screen {
   height: calc(100vh - 65px);
-  width: calc(100vw - 200px );
+  width: calc(100vw - 250px );
 }
 
 .post-screen-show-box {
@@ -32,6 +32,11 @@
 
 .post-screen-show-title {
   font-size: 25px;
+  margin-left: 15px;
+}
+
+.post-screen-show-favorite {
+  margin-left: 15px;
 }
 
 .post-screen-show-body {

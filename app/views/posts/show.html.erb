@@ -7,9 +7,12 @@
     <div class="post-screen-show-box">
       <div class="post-screen-show-header">
         <div class="post-screen-show-header-top">
-          <div class="post-screen-show-user">
-            <%= @post.user.nickname %>
-          </div>
+          <p class="post-screen-show-user">
+            <%= link_to user_path(@post.user.id) do %>
+              <div class="user-img-min"><%= render "shared/user-img", user: @post.user %></div>
+              <%= @post.user.nickname %>
+            <% end %>
+          </p>
           <div class="post-screen-show-postdate">
             <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
           </div>
@@ -41,8 +44,13 @@
               <div class="comment-area-box">
                 <div class="comment-area-message"><%= comment.message %></div>
                 <div class="comment-area-footer">
+                  <p class="comment-area-user">
+                    <%= link_to user_path(comment.user.id) do %>
+                    <div class="user-img-min"><%= render "shared/user-img", user: comment.user %></div>
+                    <%= comment.user.nickname %>
+                    <% end %>
+                  </p>
                   <div class="comment-area-message-date">投稿日時:<%= comment.created_at.to_s(:datetime_jp) %></div>
-                  <div class="comment-area-user"><%= comment.user.nickname %></div>
                   <% if comment.user.id == current_user.id %>
                     <div class="comment-area-delete"><%= link_to "削除", "/rooms/#{@room.id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete %></div>
                   <% end %>

@@ -1,7 +1,13 @@
 <div class="default-left-bar">
   <div class="default-left-bar-box">
-    <p class="default-left-bar-name"><%= current_user.nickname %>さん</p>
+    <p class="default-left-bar-name">
+      <%= link_to user_path(current_user.id) do %>
+        <div class="user-img-min"><%= render "shared/user-img", user: current_user %></div>
+        <%= current_user.nickname %>
+      <% end %>
+    </p>
   </div>
+  <div class="default-left-bar-boder"></div>
   <div class="default-left-create-box">
     <div class="default-left-create-btn" ><%= link_to "投稿する",new_room_post_path %></div>
     <%= render "rooms/room_create_window" %>

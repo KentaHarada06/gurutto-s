@@ -5,7 +5,7 @@
   <div class="room-screen">
     <div class="room-screen-header">
       <div class="room-screen-header-box">
-        <h1 class="room-screen-header-title">ルーム一覧</h1>
+        <h1 class="room-screen-header-title">ようこそ！<%= image_tag "guruttoS_logo" %>へ</h1>
         <div class="room-screen-header-search">
           <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
             <%= form.text_field :keyword, placeholder: "ルーム名を検索する", class: "search-form-text" %>
@@ -43,7 +43,7 @@
                 </div>
               </div>
             <div class="room-screen-list-body">
-              <div class="room-screen-list-owner-name">オーナー名：<%= User.find(room.owner_id).nickname %></div>
+              <div class="room-screen-list-owner-name">オーナー名：<%= link_to User.find(room.owner_id).nickname, user_path(User.find(room.owner_id).id) %></div>
               <div class="room-screen-list-create-date">作成日時：<%= room.created_at.to_s(:datetime_jp) %></div>
             </div>
           </div>

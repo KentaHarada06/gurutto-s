@@ -17,3 +17,12 @@ a {
   min-height: 100vh;
   position: relative;
 }
+
+.user-img-min img{
+  height: 25px;
+  width: 25px;
+}
+
+.hidden {
+  display: none;
+}

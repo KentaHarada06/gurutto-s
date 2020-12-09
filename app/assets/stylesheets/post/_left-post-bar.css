@@ -1,6 +1,7 @@
 .post-left-lists {
   height: calc(100% - 140px);
   overflow: auto;
+  width: 250px;
 }
 
 .post-left-list-box {

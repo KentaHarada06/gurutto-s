@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/index'
   devise_for :users
   root to: 'rooms#index'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   resources :rooms, only: [:create, :destroy] do
     collection do
       get 'search'
