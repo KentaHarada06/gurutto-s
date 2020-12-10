@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @room = Room.find(params[:room_id])
-    @posts = @room.posts.all.includes(:user)
+    @posts = @room.posts.all.includes(:user).order(created_at: "DESC")
   end
 
   def new
@@ -51,12 +51,12 @@ class PostsController < ApplicationController
 
   def search
     @room = Room.find(params[:room_id])
-    @posts = @room.posts.search(params[:keyword]).includes(:user)
+    @posts = @room.posts.search(params[:keyword]).includes(:user).order(created_at: "DESC")
   end
 
   def favorite
     @room = Room.find(params[:room_id])
-    @favorites = @room.favorites.where(user_id: current_user.id)
+    @favorites = @room.favorites.where(user_id: current_user.id).order(created_at: "DESC")
     @posts = Favorite.favorite_list(@favorites)
   end
 
