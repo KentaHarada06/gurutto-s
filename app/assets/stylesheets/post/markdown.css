@@ -1,3 +1,7 @@
 .CodeRay {
   background-color: rgb(221, 221, 221);
 }
+
+.post-screen-show-content h1 {
+  border-bottom: rgb(212, 212, 212) solid 1px;
+}
