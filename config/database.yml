@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: gurutto_s_production
-  username: gurutto_s
-  password: <%= ENV['GURUTTO_S_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
