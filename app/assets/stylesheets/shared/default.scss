@@ -11,7 +11,7 @@ a {
 }
 
 .top-img {
-  background-image: url("/images/top_img.jpg");
+  background-image: image-url('top_img.jpg');
   background-position: center top;
   background-size: cover;
   min-height: 100vh;
