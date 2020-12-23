@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to room_post_path(@post.room_id, @post.id)
     else
-      render("posts/show")
+      render('posts/show')
     end
   end
 

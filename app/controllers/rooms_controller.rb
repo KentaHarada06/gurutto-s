@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all.order(created_at: "DESC")
+    @rooms = Room.all.order(created_at: 'DESC')
     @room = Room.new
     @roomuser = RoomUser.new
   end
@@ -15,19 +15,18 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @rooms = Room.search(params[:keyword]).order(created_at: "DESC")
+    @rooms = Room.search(params[:keyword]).order(created_at: 'DESC')
   end
 
   def destroy
     room = Room.find(params[:id])
     room.destroy
     redirect_to root_path
-   end
+  end
 
   private
 
   def room_params
     params.require(:room).permit(:room_name, :room_description, user_ids: []).merge(owner_id: current_user.id)
   end
-
 end

@@ -13,5 +13,4 @@ class FavoritesController < ApplicationController
     @favorite.destroy
     redirect_to "/rooms/#{params[:room_id]}/posts/#{params[:post_id]}"
   end
-
 end

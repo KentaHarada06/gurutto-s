@@ -11,11 +11,10 @@ class Room < ApplicationRecord
   end
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Room.where('room_name LIKE(?)', "%#{search}%")
     else
       Room.all
     end
   end
-
 end
