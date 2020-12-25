@@ -31,7 +31,44 @@
     </div>
 
     <div class="user-screen-wrapper">
-    </div>
+      <% if @user.id == current_user.id %>
+        <p>参加ルームリスト</p>
+        <div class="user-profile-screen-lists">
+          <% current_user.rooms.each do |room| %>
+            <div class="user-profile-screen-box">
+              <div class="user-profile-screen-name">
+                <%= link_to room.room_name, room_posts_path(room) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
+        <p>自分の投稿リスト</p>
+        <div class="user-profile-screen-lists">
+          <% current_user.posts.each do |post| %>
+            <div class="user-profile-screen-box">
+              <div class="user-profile-screen-name">
+                <%= link_to post.title, user_path(post.user.id) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <p>お気に入り投稿リスト</p>
+        <div class="user-profile-screen-lists">
+          <% @favorite_posts.each do |post| %>
+            <div class="user-profile-screen-box">
+              <div class="user-profile-screen-name">
+              <%= link_to post.title, user_path(post.user.id) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="user-profile-no-current-user">
+          ここにはユーザー本人にのみ、情報が表示されます。
+        </div>
+      <% end %>
+    </div>
   </div>
 <main>
