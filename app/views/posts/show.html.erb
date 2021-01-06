@@ -64,7 +64,7 @@
             <p>■コメントを投稿する</p>
             <%= form_with model: [@room, @post, @comment], local: true do |f| %>
               <div class="comment-form-error-messages"><%= render "devise/shared/error_messages", model: f.object %></div>
-              <%= f.text_area :message, class: 'comment-form-box', placeholder: 'コメントを入力してください' %>
+              <%= f.text_area :message, class: 'comment-form-box', placeholder: 'コメントを入力してください', maxlength:"1000" %>
             <%= f.submit '送信', class: 'comment-form-submit' %>
             <% end %>
           </div>
