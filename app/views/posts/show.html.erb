@@ -16,12 +16,14 @@
           <div class="post-screen-show-postdate">
             <<%= @post.created_at.to_s(:datetime_jp) %>に投稿>
           </div>
-          <div class="post-screen-show-edit">
-            <%= link_to "編集", edit_room_post_path(@room, @post) %>
-          </div>
-          <div class="post-screen-show-destroy">
-            <%= link_to "削除", room_post_path(@room, @post), method: :delete %>
-          </div>
+          <% if current_user.id == @post.user.id %>
+            <div class="post-screen-show-edit">
+              <%= link_to "編集", edit_room_post_path(@room, @post) %>
+            </div>
+            <div class="post-screen-show-destroy">
+              <%= link_to "削除", room_post_path(@room, @post), method: :delete %>
+            </div>
+          <% end %>
         </div>
         <div class="post-screen-show-title">
           <%= @post.title %>

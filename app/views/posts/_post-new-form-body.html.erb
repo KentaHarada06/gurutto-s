@@ -9,12 +9,12 @@
 
       <div class="form-field">
         <label class="form-text">参考URL</label>
-        <%= f.text_field :ref_url, placeholder:"参考URL", class:"post-form-box" %>
+        <%= f.text_field :ref_url, placeholder:"参考URL", maxlength:"300", class:"post-form-box" %>
       </div>
 
       <div class="form-field">
         <label class="form-text">本文</label>
-        <%= f.text_area :content, placeholder:"本文を入力してください", class:"post-form-content" %>
+        <%= f.text_area :content, placeholder:"本文を入力してください（Markdown記法が利用可能です）", maxlength:"10000", class:"post-form-content" %>
       </div>
 
       <div class="post-form-btn">

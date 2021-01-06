@@ -5,9 +5,10 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   with_options presence: true do
-    validates :title
-    validates :content
+    validates :title, length: { maximum: 60 }
+    validates :content, length: { maximum: 30000 }
   end
+  validates :ref_url, length: { maximum: 300 }
 
   def self.search(search)
     if search != ''
