@@ -22,7 +22,7 @@
         <% @rooms.each do |room| %>
           <div class="room-screen-list-box">
             <div class="room-screen-list-header">
-              <div class="room-screen-list-room-name"><%= link_to room.room_name, room_posts_path(room) %></div>
+              <div class="room-screen-list-room-name"><%= room.room_name %></div>
                 <div class="room-screen-list-btn">
                   <% unless RoomUser.where(room_id: room.id).exists?(user_id: current_user.id) %>
                     <%= form_with model: @roomuser, local: true do |f| %>
@@ -42,6 +42,7 @@
                   <% end %>
                 </div>
               </div>
+            <div class="room-screen-list-description"><%= room.room_description %></div>
             <div class="room-screen-list-body">
               <div class="room-screen-list-owner-name">オーナー名：<%= link_to User.find(room.owner_id).nickname, user_path(User.find(room.owner_id).id) %></div>
               <div class="room-screen-list-create-date">作成日時：<%= room.created_at.to_s(:datetime_jp) %></div>

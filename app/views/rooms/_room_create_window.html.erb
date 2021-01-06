@@ -9,7 +9,7 @@
 
       <div class="field">
         <label class="form-text">ルーム説明文</label>
-        <%= f.text_field :room_description, placeholder:"ルーム説明 (100文字以内)", maxlength:"100", class:"form-default" %>
+        <%= f.text_field :room_description, placeholder:"ルーム説明 (40文字以内)", maxlength:"40", class:"form-default" %>
       </div>
 
       <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>

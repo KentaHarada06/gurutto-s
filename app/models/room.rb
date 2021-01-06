@@ -5,8 +5,8 @@ class Room < ApplicationRecord
   has_many :favorites
 
   with_options presence: true do
-    validates :room_name
-    validates :room_description
+    validates :room_name, length: { maximum: 20 }
+    validates :room_description, length: { maximum: 40 }
     validates :owner_id
   end
 
