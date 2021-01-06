@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :favorites
   has_one_attached :image
+
+  validates :nickname, uniqueness: true, length: { maximum: 15 }
 end
