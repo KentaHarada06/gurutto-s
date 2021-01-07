@@ -2,7 +2,10 @@ ja:
  activerecord:
    attributes:
      user:
-       nickname: ニックネーム
+        nickname: ニックネーム
      room:
      post:
+        title: タイトル
+        content: 本文
      comment:
+        message: メッセージ
