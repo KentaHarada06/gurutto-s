@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :move_root, only: [:edit, :destroy]
+
   def index
     @room = Room.find(params[:room_id])
     @posts = @room.posts.all.includes(:user).order(created_at: 'DESC')
@@ -64,5 +67,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :ref_url).merge(room_id: params[:room_id], user_id: current_user.id)
+  end
+
+  def move_root
+    @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
+    redirect_to root_path if current_user.id != @user.id
   end
 end

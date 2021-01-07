@@ -67,7 +67,7 @@
 
 .room-screen-list-box {
   background-color: #dfdfdf;
-  height: 80px;
+  height: 120px;
   margin: 0 auto;
   margin-bottom: 20px;
   padding: 0px 20px;
@@ -80,20 +80,16 @@
 }
 
 .room-screen-list-header {
-  height: 50%;
+  height: 40%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: gray solid 1px;
 }
 
-.room-screen-list-room-name a{
-  color: rgb(53, 157, 255);
+.room-screen-list-room-name {
+  font-size: 20px;
   padding: 0px;
-}
-
-.room-screen-list-room-name a:hover{
-  color: rgb(129, 192, 250);
 }
 
 .room-screen-list-btn {
@@ -137,8 +133,15 @@
   color: #ffffff;
 }
 
+.room-screen-list-description {
+  display: flex;
+  align-items: center;
+  height: 30%;
+  border-bottom: rgb(185, 185, 185) solid 1px;
+}
+
 .room-screen-list-body {
-  height: 50%;
+  height: 30%;
   display: flex;
   align-items: center;
 }

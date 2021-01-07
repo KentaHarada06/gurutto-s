@@ -1,4 +1,6 @@
 class RoomUsersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+  
   def create
     @roomuser = RoomUser.new(roomuser_params)
     @roomuser.save

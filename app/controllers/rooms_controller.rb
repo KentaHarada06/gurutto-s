@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :search]
+  before_action :move_root, only: [:destroy]
+
   def index
     @rooms = Room.all.order(created_at: 'DESC')
     @room = Room.new
@@ -18,9 +21,8 @@ class RoomsController < ApplicationController
     @rooms = Room.search(params[:keyword]).order(created_at: 'DESC')
   end
 
-  def destroy
-    room = Room.find(params[:id])
-    room.destroy
+  def destroy   
+    @room.destroy
     redirect_to root_path
   end
 
@@ -29,4 +31,9 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:room_name, :room_description, user_ids: []).merge(owner_id: current_user.id)
   end
+end
+
+def move_root
+  @room = Room.find(params[:id])
+  redirect_to root_path if current_user.id != @room.owner_id
 end

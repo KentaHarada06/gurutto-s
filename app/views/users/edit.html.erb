@@ -1,6 +1,7 @@
-<main class="user-wrapper">
-  <div class="post-new-form-body">
-    <div class="post-new-form-lists">
+<main class="user-edit-wrapper">
+  <div class="user-new-form-body">
+    <h2>ユーザー編集画面</h2>
+    <div class="user-new-form-lists">
       <%= form_with model: [@user], local: true do |f| %>
       <%= render "devise/shared/error_messages", model: f.object %>
 
@@ -14,8 +15,8 @@
             <%= f.file_field :image %>
         </div>
 
-        <div class="post-form-btn">
-          <%= f.submit "作成", class:"form-blue-btn" %>
+        <div class="user-form-btn">
+          <%= f.submit "編集", class:"form-blue-btn" %>
         </div>
 
       <% end %>

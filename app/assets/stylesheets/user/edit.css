@@ -1,0 +1,33 @@
+.user-edit-wrapper {
+  background-color: rgb(255, 255, 255);
+  height: calc(100vh - 65px);
+  width: 100vw;
+  overflow: auto;
+  padding: 50px 0;
+}
+
+.user-new-form-body {
+  height: calc(100% - 60px);
+  overflow: auto;
+}
+
+.user-new-form-body h2 {
+  text-align: center;
+}
+
+.user-new-form-lists {
+  height: auto;
+  width: 80%;
+  margin: 0 auto;
+  padding: 25px 50px;
+  border: gray solid 1px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.user-form-btn {
+  padding-top: 20px;
+  width: 150px;
+  margin: 0 auto;
+}
