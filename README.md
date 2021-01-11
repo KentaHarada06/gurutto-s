@@ -2,10 +2,10 @@
 アプリケーション「ぐるっとS」は会社やサークルなど、特定のグループ内で情報の発信や共有を行うことが出来るWebアプリケーションです。
 # アプリケーション情報
 ## アプリケーションURL
-- https://
+- http://ec2-13-115-125-1.ap-northeast-1.compute.amazonaws.com/
 ## テスト用アカウント
-- E-mail:
-- Password:
+- E-mail:testuser@gmail.com
+- Password:testuser
 ## GitHubリポジトリ
 - https://github.com/KentaHarada06/gurutto-s
 ## 使用技術
@@ -95,7 +95,6 @@
 | ------------------------ | ---------- | ------------------------------ |
 | title                    | string     | null: false                    |
 | content                  | text       | null: false                    |
-| ref_url                  | string     |                                |
 | user                     | references | null: false, foreign_key: true |
 | room                     | references | null: false, foreign_key: true |
 
