@@ -8,7 +8,6 @@ class Post < ApplicationRecord
     validates :title, length: { maximum: 60 }
     validates :content, length: { maximum: 30000 }
   end
-  validates :ref_url, length: { maximum: 300 }
 
   def self.search(search)
     if search != ''
