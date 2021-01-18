@@ -50,7 +50,7 @@
           <% current_user.posts.each do |post| %>
             <div class="user-profile-screen-box">
               <div class="user-profile-screen-name">
-                <%= link_to post.title, user_path(post.user.id) %>
+                <%= link_to post.title, room_post_path(post.room_id, post.id) %>
               </div>
             </div>
           <% end %>
@@ -61,7 +61,7 @@
           <% @favorite_posts.each do |post| %>
             <div class="user-profile-screen-box">
               <div class="user-profile-screen-name">
-              <%= link_to post.title, user_path(post.user.id) %>
+              <%= link_to post.title, room_post_path(post.room_id, post.id) %>
               </div>
             </div>
           <% end %>
